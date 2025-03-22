@@ -25,12 +25,22 @@ def display():
             print(' | ',end='')
     print("**********")
 
-def turn(grid,player):
-    while(True):
-        pos=int(input("Choose a valid position in Tic tac toe: "))
-        if  pos<n*n and grid[pos]!='Y' and grid[pos]!='X' :
-            grid[pos]=player
+def turn(grid, player):
+    while True:
+        pos = input("Choose a valid position in Tic Tac Toe: ")
+        
+        if not pos.isdigit(): 
+            print("Invalid input! Please enter a number.")
+            continue
+
+        pos = int(pos) 
+
+        if pos < n * n and grid[pos] not in ['Y', 'X']:
+            grid[pos] = player
             return
+        else:
+            print("Invalid position! Try again.")
+
 
 
 
